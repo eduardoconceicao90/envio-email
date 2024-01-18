@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:remove="all">Teste</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div class="header" style="padding-left: 50px; padding-right: 50px; width: 600px; height: 600px;
+						   background-image: linear-gradient(to bottom, #d1d3d3, #eeefef, #d1d3d3, #eeefef);
+						   border-radius: 10px;
+						   font-size: 16px;
+						   color: #2e5ba2;
+						   line-height:1.42;
+						   margin: auto;">
+
+    <div style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
+
+        <h2 style="font-weight: bold">
+            Olá Teste, <span th:text="${usuario}"></span>
+        </h2>
+        <br>
+        <p style="text-align: justify;">
+            Teste envio de e-mail com template.<br><br>
+            <a style="color: white;" th:href="${link}"><button>CLIQUE AQUI</button></a>
+        </p>
+        <br>
+        <p class="" style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Quis auctor elit sed vulputate mi sit amet. Eget egestas purus viverra
+            accumsan. Arcu risus quis varius quam quisque. Sodales ut etiam sit amet. Enim diam vulputate ut
+            pharetra sit amet. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Neque ornare
+            aenean euismod elementum nisi quis. Tellus mauris a diam maecenas. Dolor purus non enim praesent
+            elementum facilisis leo vel fringilla. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus.
+            Fusce ut placerat orci nulla. Nulla aliquet enim tortor at. Nisl condimentum id venenatis a
+            condimentum. Etiam sit amet nisl purus. Tortor id aliquet lectus proin nibh nisl condimentum id.
+        </p>
+    </div>
+</div>
+</body>
+
+</html>
