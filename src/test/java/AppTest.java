@@ -7,17 +7,22 @@ import java.io.UnsupportedEncodingException;
 
 public class AppTest {
 
-    private String username = "eduardodevjavaweb@gmail.com";
-    private String senha = "nxev ubuc bxfa ikmv";
+    private String msg = "Mensagem html no envio de e-mail";
 
     @Test
     public void testeEmail() throws MessagingException, UnsupportedEncodingException {
+
+        StringBuilder mensagemHtml = new StringBuilder();
+
+        mensagemHtml.append("<b>Testando HTML</b><br/>");
+        mensagemHtml.append("<b>Teste: </b>").append(msg).append("<br/><br/>");
+        mensagemHtml.append("<a target=\"_blank\" href=\"https://google.com.br\"> clique aqui");
 
         EnvioEmail envioEmail = new EnvioEmail(
                   "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
                   "Eduardo - Java Web",
                     "Teste",
-                      "Testando envio de e-mail."
+                                mensagemHtml.toString()
         );
 
         envioEmail.enviarEmail();
