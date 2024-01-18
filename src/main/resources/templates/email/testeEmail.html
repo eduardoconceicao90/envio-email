@@ -17,13 +17,24 @@
 
     <div style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
 
-        <h2 style="font-weight: bold">
+        <h1 style="font-weight: bold">
             Olá Teste, <span th:text="${usuario}"></span>
-        </h2>
+        </h1>
         <br>
         <p style="text-align: justify;">
             Teste envio de e-mail com template.<br><br>
-            <a style="color: white;" th:href="${link}"><button>CLIQUE AQUI</button></a>
+            <a style="color: white;" th:href="${link}">
+                <button style="background: #0066A2;
+							color: white;
+							border: #0066A2;
+							height: 40px;
+							width: 200px;
+							font: bold15px arial,sans-serif;
+							border-radius: 30px;
+							text-align: center;
+							cursor: pointer;" type="button" class="btn"
+                >CLIQUE AQUI</button>
+            </a>
         </p>
         <br>
         <p class="" style="text-align: justify;">

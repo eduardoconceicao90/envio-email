@@ -15,8 +15,8 @@ public class AppTest {
         StringBuilder mensagemHtml = new StringBuilder();
 
         mensagemHtml.append("<b>Testando HTML</b><br/>");
-        mensagemHtml.append("<b>EnvioEmailTemplate: </b>").append(msg).append("<br/><br/>");
-        mensagemHtml.append("<a target=\"_blank\" href=\"https://google.com.br\"> clique aqui");
+        mensagemHtml.append("<b>Envio e-mail: </b>").append(msg).append("<br/><br/>");
+        mensagemHtml.append("<a target=\"_blank\" href=\"https://google.com.br\"> CLIQUE AQUI");
 
         EnvioEmail envioEmail = new EnvioEmail(
                   "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
@@ -38,7 +38,7 @@ public class AppTest {
         EnvioEmailTemplate envioEmailTemplate = new EnvioEmailTemplate(
                 "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
                 "Eduardo - Java Web",
-                "EnvioEmailTemplate",
+                "Envio e-mail template",
                 "email/testeEmail" // Substitua pelo caminho real do seu template HTML
         );
 
