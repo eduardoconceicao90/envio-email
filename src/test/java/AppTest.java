@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 public class AppTest {
 
     private String msg = "Mensagem html no envio de e-mail";
+    private String msgAnexo = "Mensagem html no envio de e-mail anexo";
 
     @Test
     public void testeEmail() throws MessagingException, UnsupportedEncodingException {
@@ -21,11 +22,31 @@ public class AppTest {
         EnvioEmail envioEmail = new EnvioEmail(
                   "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
                   "Eduardo - Java Web",
-                    "EnvioEmail",
+                    "Envio e-mail",
                                 mensagemHtml.toString()
         );
 
         envioEmail.enviarEmail();
+
+    }
+
+    @Test
+    public void testeEmailAnexo() throws Exception {
+
+        StringBuilder mensagemHtml = new StringBuilder();
+
+        mensagemHtml.append("<b>Testando HTML</b><br/>");
+        mensagemHtml.append("<b>Envio e-mail anexo: </b>").append(msgAnexo).append("<br/><br/>");
+        mensagemHtml.append("<a target=\"_blank\" href=\"https://google.com.br\"> CLIQUE AQUI");
+
+        EnvioEmail envioEmail = new EnvioEmail(
+                "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
+                "Eduardo - Java Web",
+                "Envio e-mail anexo",
+                mensagemHtml.toString()
+        );
+
+        envioEmail.enviarEmailAnexo();
 
     }
 

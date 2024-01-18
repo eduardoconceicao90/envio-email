@@ -4,13 +4,19 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import javax.activation.DataHandler;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class EnvioEmail {
@@ -56,6 +62,64 @@ public class EnvioEmail {
         message.setRecipients(Message.RecipientType.TO, toUser);
         message.setSubject(assuntoEmail);
         message.setContent(msgEmail, "text/html; charset=utf-8");
+
+        Transport.send(message);
+    }
+
+    public void enviarEmailAnexo() throws Exception {
+
+        Properties properties = new Properties();
+        properties.put("mail.smtp.ssl.trust", "*");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls", "false");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+
+        Session session = Session.getInstance(properties, new Authenticator() {
+
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, senha);
+            }
+
+        });
+
+        session.setDebug(true);
+
+        Address[] toUser = InternetAddress.parse(listaDestinatarios);
+
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username, nomeRemetente, "UTF-8"));
+        message.setRecipients(Message.RecipientType.TO, toUser);
+        message.setSubject(assuntoEmail);
+
+        MimeBodyPart emailBody = new MimeBodyPart();
+
+        emailBody.setContent(msgEmail, "text/html; charset=utf-8");
+
+        List<FileInputStream> arquivos = new ArrayList<>();
+        arquivos.add(simuladorDePDF());
+        arquivos.add(simuladorDePDF());
+
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(emailBody);
+
+        int index = 0;
+
+        for (FileInputStream fileInputStream : arquivos) {
+
+            MimeBodyPart anexo = new MimeBodyPart();
+
+            anexo.setDataHandler(new DataHandler(new ByteArrayDataSource(fileInputStream, "application/pdf")));
+            anexo.setFileName("anexo" + index + ".pdf");
+
+            multipart.addBodyPart(anexo);
+
+            index++;
+        }
+        message.setContent(multipart);
 
         Transport.send(message);
     }
