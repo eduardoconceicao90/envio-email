@@ -1,4 +1,5 @@
 import envioEmail.EnvioEmail;
+import envioEmail.EnvioEmailAnexo;
 import envioEmail.EnvioEmailTemplate;
 import org.junit.Test;
 
@@ -39,14 +40,14 @@ public class AppTest {
         mensagemHtml.append("<b>Envio e-mail anexo: </b>").append(msgAnexo).append("<br/><br/>");
         mensagemHtml.append("<a target=\"_blank\" href=\"https://google.com.br\"> CLIQUE AQUI");
 
-        EnvioEmail envioEmail = new EnvioEmail(
+        EnvioEmailAnexo envioEmailAnexo = new EnvioEmailAnexo(
                 "eduardosaconceicao@gmail.com, eduardodevjavaweb@gmail.com",
                 "Eduardo - Java Web",
                 "Envio e-mail anexo",
                 mensagemHtml.toString()
         );
 
-        envioEmail.enviarEmailAnexo();
+        envioEmailAnexo.enviarEmailAnexo();
 
     }
 
