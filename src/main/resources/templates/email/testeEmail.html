@@ -4,33 +4,76 @@
 <head>
     <title th:remove="all">Teste</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="testeEmail.css">
+    <style>
+        .header {
+            padding-left: 50px;
+            padding-right: 50px;
+            width: 600px;
+            height: 500px;
+            background-image: linear-gradient(to bottom, #d1d3d3, #eeefef, #d1d3d3, #eeefef);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #2e5ba2;
+            line-height: 1.42;
+            margin: auto;
+        }
+
+        .header-inner {
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+        }
+
+        .header h1 {
+            font-weight: bold;
+        }
+
+        .header p {
+            text-align: justify;
+        }
+
+        .header a {
+            color: white;
+        }
+
+        .header button {
+            background: #0066A2;
+            color: white;
+            border: #0066A2;
+            height: 40px;
+            width: 200px;
+            font: bold 15px arial, sans-serif;
+            border-radius: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-<div class="header">
-    <div class="header-inner">
-        <h1>
-            Olá Teste, <span th:text="${usuario}"></span>
-        </h1>
-        <p>
-            Teste envio de e-mail com template.<br><br>
-            <a th:href="${link}">
-                <button type="button" class="btn">CLIQUE AQUI</button>
-            </a>
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Quis auctor elit sed vulputate mi sit amet. Eget egestas purus viverra
-            accumsan. Arcu risus quis varius quam quisque. Sodales ut etiam sit amet. Enim diam vulputate ut
-            pharetra sit amet. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Neque ornare
-            aenean euismod elementum nisi quis. Tellus mauris a diam maecenas. Dolor purus non enim praesent
-            elementum facilisis leo vel fringilla. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus.
-            Fusce ut placerat orci nulla. Nulla aliquet enim tortor at. Nisl condimentum id venenatis a
-            condimentum. Etiam sit amet nisl purus. Tortor id aliquet lectus proin nibh nisl condimentum id.
-        </p>
+    <div class="header">
+        <div class="header-inner">
+            <h1>
+                Olá Teste, <span th:text="${usuario}"></span>
+            </h1>
+            <p>
+                Teste envio de e-mail com template.<br><br>
+                <a th:href="${link}">
+                    <button type="button" class="btn">CLIQUE AQUI</button>
+                </a>
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Quis auctor elit sed vulputate mi sit amet. Eget egestas purus viverra
+                accumsan. Arcu risus quis varius quam quisque. Sodales ut etiam sit amet. Enim diam vulputate ut
+                pharetra sit amet. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Neque ornare
+                aenean euismod elementum nisi quis. Tellus mauris a diam maecenas. Dolor purus non enim praesent
+                elementum facilisis leo vel fringilla. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus.
+                Fusce ut placerat orci nulla. Nulla aliquet enim tortor at. Nisl condimentum id venenatis a
+                condimentum. Etiam sit amet nisl purus. Tortor id aliquet lectus proin nibh nisl condimentum id.
+            </p>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
