@@ -1,0 +1,42 @@
+.header {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 600px;
+    height: 500px;
+    background-image: linear-gradient(to bottom, #d1d3d3, #eeefef, #d1d3d3, #eeefef);
+    border-radius: 10px;
+    font-size: 16px;
+    color: #2e5ba2;
+    line-height: 1.42;
+    margin: auto;
+}
+
+.header-inner {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+
+.header h1 {
+    font-weight: bold;
+}
+
+.header p {
+    text-align: justify;
+}
+
+.header a {
+    color: white;
+}
+
+.header button {
+    background: #0066A2;
+    color: white;
+    border: #0066A2;
+    height: 40px;
+    width: 200px;
+    font: bold 15px arial, sans-serif;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+}
